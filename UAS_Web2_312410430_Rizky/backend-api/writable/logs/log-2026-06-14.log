@@ -1,0 +1,143 @@
+CRITICAL - 2026-06-14 17:34:53 --> DomainException: Provided key is too short
+[Method: POST, Route: login]
+in VENDORPATH\firebase\php-jwt\src\JWT.php on line 701.
+ 1 VENDORPATH\firebase\php-jwt\src\JWT.php(274): Firebase\JWT\JWT::validateHmacKeyLength('kunci_rahasia_uas_rizky', 'SHA256')
+ 2 VENDORPATH\firebase\php-jwt\src\JWT.php(242): Firebase\JWT\JWT::sign('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3ODE0NTg0OTMsImV4cCI6MTc4MTU0NDg5MywidWlkIjoiMSIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwicm9sZSI6ImFkbWluIn0', Object(SensitiveParameterValue), 'HS256')
+ 3 APPPATH\Controllers\Auth.php(49): Firebase\JWT\JWT::encode([...], Object(SensitiveParameterValue), 'HS256')
+ 4 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Auth->login()
+ 5 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 6 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\UAS_Web2_312410430_Rizky\\backend-api\\public\\index.php')
+ERROR - 2026-06-14 17:38:42 --> Duplicate entry 'rizky@admin.com' for key 'email'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `users` (`nama`, `email`, `password`, `role`, `created_at`) VALUES (\'Rizky Maulana\', \'rizky@admin.com\', \'$2y$10$BS/8lRf7/HCIrC/D4IX4ROi8DPUjCBfE.eD18C6G0AWGc1uAyIWH2\', \'admin\', \'2026-06-14 17:38:42\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(908): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `users` (`nama`, `email`, `password`, `role`, `created_at`) VALUES (\'Rizky Maulana\', \'rizky@admin.com\', \'$2y$10$BS/8lRf7/HCIrC/D4IX4ROi8DPUjCBfE.eD18C6G0AWGc1uAyIWH2\', \'admin\', \'2026-06-14 17:38:42\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `users` (`nama`, `email`, `password`, `role`, `created_at`) VALUES (\'Rizky Maulana\', \'rizky@admin.com\', \'$2y$10$BS/8lRf7/HCIrC/D4IX4ROi8DPUjCBfE.eD18C6G0AWGc1uAyIWH2\', \'admin\', \'2026-06-14 17:38:42\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2343): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users` (`nama`, `email`, `password`, `role`, `created_at`) VALUES (:nama:, :email:, :password:, :role:, :created_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(357): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(899): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(670): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Config\Routes.php(19): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(895): CodeIgniter\Router\RouteCollection->{closure}()
+10 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->startController()
+11 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\UAS_Web2_312410430_Rizky\\backend-api\\public\\index.php')
+CRITICAL - 2026-06-14 17:38:42 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry 'rizky@admin.com' for key 'email'
+[Method: GET, Route: buat-akun-baru]
+in SYSTEMPATH\Database\BaseConnection.php on line 863.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2343): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users` (`nama`, `email`, `password`, `role`, `created_at`) VALUES (:nama:, :email:, :password:, :role:, :created_at:)', [...], false)
+ 2 SYSTEMPATH\Model.php(357): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(899): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(670): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Config\Routes.php(19): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(895): CodeIgniter\Router\RouteCollection->{closure}()
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->startController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\UAS_Web2_312410430_Rizky\\backend-api\\public\\index.php')
+CRITICAL - 2026-06-14 17:38:42 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry 'rizky@admin.com' for key 'email'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\BaseConnection.php(908): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `users` (`nama`, `email`, `password`, `role`, `created_at`) VALUES (\'Rizky Maulana\', \'rizky@admin.com\', \'$2y$10$BS/8lRf7/HCIrC/D4IX4ROi8DPUjCBfE.eD18C6G0AWGc1uAyIWH2\', \'admin\', \'2026-06-14 17:38:42\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `users` (`nama`, `email`, `password`, `role`, `created_at`) VALUES (\'Rizky Maulana\', \'rizky@admin.com\', \'$2y$10$BS/8lRf7/HCIrC/D4IX4ROi8DPUjCBfE.eD18C6G0AWGc1uAyIWH2\', \'admin\', \'2026-06-14 17:38:42\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2343): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users` (`nama`, `email`, `password`, `role`, `created_at`) VALUES (:nama:, :email:, :password:, :role:, :created_at:)', [...], false)
+ 4 SYSTEMPATH\Model.php(357): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(899): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(670): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Config\Routes.php(19): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(895): CodeIgniter\Router\RouteCollection->{closure}()
+ 9 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->startController()
+10 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\UAS_Web2_312410430_Rizky\\backend-api\\public\\index.php')
+CRITICAL - 2026-06-14 17:38:42 --> [Caused by] mysqli_sql_exception: Duplicate entry 'rizky@admin.com' for key 'email'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `users` (`nama`, `email`, `password`, `role`, `created_at`) VALUES (\'Rizky Maulana\', \'rizky@admin.com\', \'$2y$10$BS/8lRf7/HCIrC/D4IX4ROi8DPUjCBfE.eD18C6G0AWGc1uAyIWH2\', \'admin\', \'2026-06-14 17:38:42\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(908): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `users` (`nama`, `email`, `password`, `role`, `created_at`) VALUES (\'Rizky Maulana\', \'rizky@admin.com\', \'$2y$10$BS/8lRf7/HCIrC/D4IX4ROi8DPUjCBfE.eD18C6G0AWGc1uAyIWH2\', \'admin\', \'2026-06-14 17:38:42\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `users` (`nama`, `email`, `password`, `role`, `created_at`) VALUES (\'Rizky Maulana\', \'rizky@admin.com\', \'$2y$10$BS/8lRf7/HCIrC/D4IX4ROi8DPUjCBfE.eD18C6G0AWGc1uAyIWH2\', \'admin\', \'2026-06-14 17:38:42\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2343): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users` (`nama`, `email`, `password`, `role`, `created_at`) VALUES (:nama:, :email:, :password:, :role:, :created_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(357): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(899): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(670): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Config\Routes.php(19): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(895): CodeIgniter\Router\RouteCollection->{closure}()
+10 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->startController()
+11 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\UAS_Web2_312410430_Rizky\\backend-api\\public\\index.php')
+CRITICAL - 2026-06-14 17:39:28 --> DomainException: Provided key is too short
+[Method: POST, Route: login]
+in VENDORPATH\firebase\php-jwt\src\JWT.php on line 701.
+ 1 VENDORPATH\firebase\php-jwt\src\JWT.php(274): Firebase\JWT\JWT::validateHmacKeyLength('kunci_rahasia_uas_rizky', 'SHA256')
+ 2 VENDORPATH\firebase\php-jwt\src\JWT.php(242): Firebase\JWT\JWT::sign('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3ODE0NTg3NjgsImV4cCI6MTc4MTU0NTE2OCwidWlkIjoiMiIsImVtYWlsIjoicml6a3lAYWRtaW4uY29tIiwicm9sZSI6ImFkbWluIn0', Object(SensitiveParameterValue), 'HS256')
+ 3 APPPATH\Controllers\Auth.php(49): Firebase\JWT\JWT::encode([...], Object(SensitiveParameterValue), 'HS256')
+ 4 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Auth->login()
+ 5 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 6 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\UAS_Web2_312410430_Rizky\\backend-api\\public\\index.php')
+CRITICAL - 2026-06-14 17:39:48 --> DomainException: Provided key is too short
+[Method: POST, Route: login]
+in VENDORPATH\firebase\php-jwt\src\JWT.php on line 701.
+ 1 VENDORPATH\firebase\php-jwt\src\JWT.php(274): Firebase\JWT\JWT::validateHmacKeyLength('kunci_rahasia_uas_rizky', 'SHA256')
+ 2 VENDORPATH\firebase\php-jwt\src\JWT.php(242): Firebase\JWT\JWT::sign('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3ODE0NTg3ODgsImV4cCI6MTc4MTU0NTE4OCwidWlkIjoiMiIsImVtYWlsIjoicml6a3lAYWRtaW4uY29tIiwicm9sZSI6ImFkbWluIn0', Object(SensitiveParameterValue), 'HS256')
+ 3 APPPATH\Controllers\Auth.php(49): Firebase\JWT\JWT::encode([...], Object(SensitiveParameterValue), 'HS256')
+ 4 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Auth->login()
+ 5 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 6 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\UAS_Web2_312410430_Rizky\\backend-api\\public\\index.php')
+CRITICAL - 2026-06-14 17:42:39 --> DomainException: Provided key is too short
+[Method: POST, Route: login]
+in VENDORPATH\firebase\php-jwt\src\JWT.php on line 701.
+ 1 VENDORPATH\firebase\php-jwt\src\JWT.php(274): Firebase\JWT\JWT::validateHmacKeyLength('kunci_rahasia_uas_rizky', 'SHA256')
+ 2 VENDORPATH\firebase\php-jwt\src\JWT.php(242): Firebase\JWT\JWT::sign('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3ODE0NTg5NTksImV4cCI6MTc4MTU0NTM1OSwidWlkIjoiMiIsImVtYWlsIjoicml6a3lAYWRtaW4uY29tIiwicm9sZSI6ImFkbWluIn0', Object(SensitiveParameterValue), 'HS256')
+ 3 APPPATH\Controllers\Auth.php(49): Firebase\JWT\JWT::encode([...], Object(SensitiveParameterValue), 'HS256')
+ 4 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Auth->login()
+ 5 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 6 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(67): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\UAS_Web2_312410430_Rizky\\backend-api\\public\\index.php')
+CRITICAL - 2026-06-14 17:43:08 --> DomainException: Provided key is too short
+[Method: POST, Route: login]
+in VENDORPATH\firebase\php-jwt\src\JWT.php on line 701.
+ 1 VENDORPATH\firebase\php-jwt\src\JWT.php(274): Firebase\JWT\JWT::validateHmacKeyLength('kunci_rahasia_uas_rizky', 'SHA256')
+ 2 VENDORPATH\firebase\php-jwt\src\JWT.php(242): Firebase\JWT\JWT::sign('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3ODE0NTg5ODcsImV4cCI6MTc4MTU0NTM4NywidWlkIjoiMiIsImVtYWlsIjoicml6a3lAYWRtaW4uY29tIiwicm9sZSI6ImFkbWluIn0', Object(SensitiveParameterValue), 'HS256')
+ 3 APPPATH\Controllers\Auth.php(49): Firebase\JWT\JWT::encode([...], Object(SensitiveParameterValue), 'HS256')
+ 4 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Auth->login()
+ 5 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 6 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(67): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\UAS_Web2_312410430_Rizky\\backend-api\\public\\index.php')
+CRITICAL - 2026-06-14 17:45:46 --> DomainException: Provided key is too short
+[Method: POST, Route: login]
+in VENDORPATH\firebase\php-jwt\src\JWT.php on line 701.
+ 1 VENDORPATH\firebase\php-jwt\src\JWT.php(274): Firebase\JWT\JWT::validateHmacKeyLength('kunci_rahasia_uas_rizky', 'SHA256')
+ 2 VENDORPATH\firebase\php-jwt\src\JWT.php(242): Firebase\JWT\JWT::sign('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3ODE0NTkxNDYsImV4cCI6MTc4MTU0NTU0NiwidWlkIjoiMiIsImVtYWlsIjoicml6a3lAYWRtaW4uY29tIiwicm9sZSI6ImFkbWluIn0', Object(SensitiveParameterValue), 'HS256')
+ 3 APPPATH\Controllers\Auth.php(49): Firebase\JWT\JWT::encode([...], Object(SensitiveParameterValue), 'HS256')
+ 4 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Auth->login()
+ 5 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 6 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(67): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\UAS_Web2_312410430_Rizky\\backend-api\\public\\index.php')
