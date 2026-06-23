@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Inventory | Administrator Panel</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue-router@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body class="bg-slate-900 text-slate-200 min-h-screen font-sans antialiased bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    
+    <div id="app" class="flex h-screen overflow-hidden">
+        
+        <aside v-if="isLoggedIn" class="w-64 bg-slate-900/80 backdrop-blur-md border-r border-slate-700/50 flex flex-col justify-between h-full shadow-2xl relative z-20">
+            <div>
+                <div class="p-6 border-b border-slate-800">
+                    <h1 class="text-2xl font-black text-white tracking-wider">E-INVENTORY</h1>
+                    <p class="text-xs text-slate-400 mt-1">Administrator Panel</p>
+                </div>
+                
+                <nav class="p-4 space-y-2 font-medium">
+                    <router-link to="/dashboard" class="block px-4 py-3 rounded-xl hover:bg-slate-800 transition-colors" :class="{'bg-blue-600/20 border border-blue-500/30 text-blue-400': $route.path === '/dashboard'}">
+                        🏠 Dashboard Utama
+                    </router-link>
+                    <router-link to="/kategori" class="block px-4 py-3 rounded-xl hover:bg-slate-800 transition-colors" :class="{'bg-blue-600/20 border border-blue-500/30 text-blue-400': $route.path === '/kategori'}">
+                        📁 Data Kategori
+                    </router-link>
+                    <router-link to="/barang" class="block px-4 py-3 rounded-xl hover:bg-slate-800 transition-colors" :class="{'bg-blue-600/20 border border-blue-500/30 text-blue-400': $route.path === '/barang'}">
+                        📦 Data Barang
+                    </router-link>
+                </nav>
+            </div>
+            
+            <div class="p-4 border-t border-slate-800">
+                <button onclick="logoutApp()" class="w-full bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg">
+                    Keluar (Logout)
+                </button>
+            </div>
+        </aside>
+
+        <main class="flex-1 overflow-y-auto relative z-10">
+            <router-view></router-view>
+        </main>
+        
+    </div>
+
+    <script src="components/Login.js?v=999"></script>
+    <script src="components/Dashboard.js?v=999"></script>
+    <script src="components/Kategori.js?v=999"></script>
+    <script src="components/Barang.js?v=999"></script>
+
+    <script>
+        // 1. Konfigurasi Rute Aplikasi
+        const routes = [
+            { path: '/', redirect: '/login' }, // Otomatis ke halaman login saat web dibuka
+            { path: '/login', component: Login, meta: { guest: true } },
+            { path: '/dashboard', component: Dashboard, meta: { requiresAuth: true } },
+            { path: '/kategori', component: Kategori, meta: { requiresAuth: true } },
+            { path: '/barang', component: Barang, meta: { requiresAuth: true } }
+        ];
+
+        const router = VueRouter.createRouter({
+            history: VueRouter.createWebHashHistory(),
+            routes
+        });
+
+        // 2. Satpam Frontend (Navigation Guards)
+        router.beforeEach((to, from, next) => {
+            const loggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            
+            if (to.matched.some(record => record.meta.requiresAuth) && !loggedIn) {
+                // Jika halaman butuh login tapi belum login, tendang ke /login
+                next('/login');
+            } else if (to.matched.some(record => record.meta.guest) && loggedIn) {
+                // Jika sudah login tapi mencoba ke /login, tendang ke /dashboard
+                next('/dashboard');
+            } else {
+                next();
+            }
+        });
+
+        // 3. Inisialisasi Vue App
+        const app = Vue.createApp({
+            data() {
+                return {
+                    // Variabel ini mengontrol sidebar agar sembunyi di halaman login
+                    isLoggedIn: localStorage.getItem('isLoggedIn') === 'true'
+                }
+            },
+            watch: {
+                // Pantau perubahan halaman. Jika pindah rute, cek ulang status login
+                $route() {
+                    this.isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+                }
+            }
+        });
+
+        app.use(router);
+        app.mount('#app');
+
+        // 4. Fungsi Global untuk Logout
+        function logoutApp() {
+            if(confirm('Apakah Anda yakin ingin keluar dari sistem?')) {
+                // Hapus semua tiket masuk dari ingatan browser
+                localStorage.removeItem('token');
+                localStorage.removeItem('isLoggedIn');
+                
+                // Arahkan kembali ke halaman login dan refresh sistem
+                window.location.hash = '/login';
+                window.location.reload();
+            }
+        }
+    </script>
+</body>
+</html>
