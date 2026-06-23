@@ -11,7 +11,7 @@ E-Inventory adalah sebuah aplikasi manajemen inventaris barang berbasis *Single 
 
 ---
 
-## 📸 Cuplikan Layar (Screenshots) & Penjelasan
+## Cuplikan Layar (Screenshots) & Penjelasan
 
 ### 1. Halaman Login (Autentikasi JWT)
 ![Halaman Login]
