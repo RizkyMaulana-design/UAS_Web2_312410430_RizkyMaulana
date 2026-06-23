@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Models;
+
+use CodeIgniter\Model;
+
+class BarangModel extends Model
+{
+    protected $table = 'barang';
+    protected $primaryKey = 'id';
+    protected $returnType = 'array';
+
+    // Sesuaikan nama kolom ini jika di phpMyAdmin kamu berbeda penulisannya
+    protected $allowedFields = ['kategori_id', 'nama_barang', 'harga', 'stok', 'gambar'];
+}
